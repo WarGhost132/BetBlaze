@@ -1,0 +1,888 @@
+@font-face {
+    font-family: 'Angeme';
+    src: url("../fonts/Angeme-Regular.woff2") format("woff2"),
+    url("../fonts/Angeme-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    /*
+        Palette Sections
+    */
+    --palette-primary: rgba(239, 126, 38, 1);
+    --palette-games-card: rgba(255, 255, 255, .5);
+    --palette-glare: rgba(255, 233, 233, 1);
+    --palette-neon: rgba(255, 0, 0, 1);
+    --palette-background: rgba(30, 32, 66, 1);
+    --palette-text-primary: rgba(255, 221, 41, 1);
+    --palette-text-secondary: rgba(0, 0, 0, 1);
+    --palette-text-default: rgba(255, 255, 255, 1);
+    --palette-text-lighting: rgba(189, 183, 126, 1);
+    --palette-button-background-gradient: linear-gradient(
+        180deg,
+        rgba(251, 131, 45, 1) 0%,
+        rgba(251, 131, 45, 1) 21.45%,
+        rgba(251, 131, 45, 1) 53.49%,
+        rgba(244, 82, 0, 1) 92.58%);
+    --palette-button-background-gradient-hover: linear-gradient(
+        180deg,
+        rgba(244, 82, 0, 1) 0%,
+        rgba(244, 82, 0, 1) 21.45%,
+        rgba(244, 82, 0, 1) 53.49%,
+        rgba(244, 82, 0, 1) 92.58%);
+
+    /*
+        Typography Sections
+    */
+    /* Default Typography */
+    --typography-default-family: Akshar;
+    --typography-default-weight: 300;
+    --typography-default-size: 24px;
+    --typography-default-lineheight: 24px;
+    --typography-default-text-transform: none;
+
+    /* H1 Typography */
+    --typography-h1-family: Angeme;
+    --typography-h1-weight: 400;
+    --typography-h1-size: 96px;
+    --typography-h1-lineheight: 96px;
+    --typography-h1-text-transform: uppercase;
+
+    /* Subtitle1 Typography */
+    --typography-subtitle1-family: Akshar;
+    --typography-subtitle1-weight: 600;
+    --typography-subtitle1-size: 64px;
+    --typography-subtitle1-lineheight: 77px;
+    --typography-subtitle1-text-transform: none;
+
+    /* H2 Typography */
+    --typography-h2-family: Angeme;
+    --typography-h2-weight: 400;
+    --typography-h2-size: 64px;
+    --typography-h2-lineheight: 96px;
+    --typography-h2-text-transform: uppercase;
+
+    /* Subtitle2 Typography */
+    --typography-subtitle2-family: Akshar;
+    --typography-subtitle2-weight: 600;
+    --typography-subtitle2-size: 96px;
+    --typography-subtitle2-lineheight: 144px;
+    --typography-subtitle2-text-transform: uppercase;
+
+    /* Subtitle3 Typography */
+    --typography-subtitle3-family: Akshar;
+    --typography-subtitle3-weight: 600;
+    --typography-subtitle3-size: 32px;
+    --typography-subtitle3-lineheight: 32px;
+
+    /* Button Typography */
+    --typography-button-family: Akshar;
+    --typography-button-weight: 600;
+    --typography-button-size: 48px;
+    --typography-button-lineheight: 77px;
+
+    /* Body1 Typography */
+    --typography-body1-family: Akshar;
+    --typography-body1-weight: 500;
+    --typography-body1-size: 48px;
+    --typography-body1-lineheight: 72px;
+    --typography-body1-text-transform: none;
+
+    /* Blocks */
+    --section-min-height: 120px;
+    --section-padding: 50px 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--typography-default-family);
+    font-weight: var(--typography-default-weight);
+    font-size: var(--typography-default-size);
+    line-height: var(--typography-default-lineheight);
+    text-transform: var(--typography-default-text-transform);
+    color: var(--palette-text-default);
+    text-shadow: 2px 2px 0.5px rgba(0, 0, 0, 0.4);
+    background-color: var(--palette-background);
+    background-image: url('/assets/images/bg.webp');
+}
+
+h1 {
+    font-family: var(--typography-h1-family);
+    font-weight: var(--typography-h1-weight);
+    font-size: var(--typography-h1-size);
+    line-height: var(--typography-h1-lineheight);
+    text-transform: var(--typography-h1-text-transform);
+    color: var(--palette-text-primary);
+    text-shadow: 4px 4px 1px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    font-family: var(--typography-h2-family);
+    font-weight: var(--typography-h2-weight);
+    font-size: var(--typography-h2-size);
+    line-height: var(--typography-h2-lineheight);
+    text-transform: var(--typography-h2-text-transform);
+    text-shadow: 4px 4px 1px rgba(0, 0, 0, 0.5);
+}
+
+.custom-title {
+    font-family: var(--typography-h1-family);
+    font-weight: var(--typography-h1-weight);
+    font-size: var(--typography-h1-size);
+    text-transform: var(--typography-h1-text-transform);
+    color: var(--palette-text-primary);
+    text-shadow: 4px 4px 1px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    font-family: var(--typography-subtitle1-family);
+    font-weight: var(--typography-subtitle1-weight);
+    font-size: var(--typography-subtitle1-size);
+    line-height: var(--typography-subtitle1-lineheight);
+    text-transform: var(--typography-subtitle1-text-transform);
+    text-shadow: 4px 4px 1px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle-2 {
+    font-family: var(--typography-subtitle2-family);
+    font-weight: var(--typography-subtitle2-weight);
+    font-size: var(--typography-subtitle2-size);
+    animation: neon 1.5s ease-in-out infinite alternate;
+    text-shadow: 0 0 4px var(--palette-text-lighting);
+}
+
+@keyframes neon {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgba(189, 183, 126, 1),
+      0 0 35px rgba(189, 183, 126, 1), 0 0 40px rgba(189, 183, 126, 1), 0 0 50px rgba(189, 183, 126, 1), 0 0 75px rgba(189, 183, 126, 1);
+  }
+  to {
+    text-shadow: 0 0 2.5px #fff, 0 0 5px #fff, 0 0 7.5px #fff, 0 0 10px rgba(189, 183, 126, 1),
+      0 0 14.5px rgba(189, 183, 126, 1), 0 0 20px rgba(189, 183, 126, 1), 0 0 25px rgba(189, 183, 126, 1), 0 0 32.5px rgba(189, 183, 126, 1);
+  }
+}
+
+.subtitle-3 {
+    font-family: var(--typography-subtitle3-family);
+    font-weight: var(--typography-subtitle3-weight);
+    font-size: var(--typography-subtitle3-size);
+    line-height: var(--typography-subtitle3-lineheight);
+}
+
+.header__logo img {
+    width: 164px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+main {
+    position: absolute;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+section {
+    min-height: var(--section-min-height);
+    padding: var(--section-padding);
+}
+
+.nav-left,
+.nav-right {
+    flex: 0 1 auto;
+}
+.nav-fill {
+    flex: 1 1 auto;
+}
+
+.custom__container {
+    padding: 0 100px;
+}
+
+.main__section {
+    background-image: url('./../images/main/bg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    min-height: 1000px;
+}
+
+.main__content__wrapper {
+    width: 820px;
+}
+
+.main__image__wrapper img {
+    max-height: 1053px;
+    position: relative;
+    z-index: 2;
+}
+
+.main__circle {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    border-radius: 50%;
+    background-color: var(--palette-primary);
+    z-index: 3;
+}
+
+button {
+    border: 2px solid var(--palette-primary);
+    padding: 50px 25px;
+    background: var(--palette-button-background-gradient);
+    border-radius: 30px;
+    font-family: var(--typography-button-family);
+    font-weight: var(--typography-button-weight);
+    font-size: var(--typography-button-size);
+    color: var(--palette-text-default);
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+    transition: all .5s ease-in-out;
+    position: relative;
+    overflow-x: hidden;
+}
+
+button:hover {
+    background: var(--palette-button-background-gradient-hover);
+}
+
+.flare {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 45px;
+    transform: skewx(-45deg);
+    animation: flareAnimation;
+    left: -150%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4));
+    animation: flareAnimation 3s infinite linear;
+}
+
+@keyframes flareAnimation {
+    0% {
+        left: -150%;
+    }
+    100% {
+        left: 150%;
+    }
+}
+
+.offer__wrapper img {
+    animation: scale 3s infinite linear;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(0.95);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.95);
+    }
+}
+
+html {
+    overflow-x: hidden;
+}
+
+/* Offers */
+.offer__wrapper img {
+    width: 400px;
+    height: auto;
+}
+
+/* Games */
+
+.game__card {
+    width: 19%;
+    height: 469px;
+    border-radius: 40px;
+    background-color: var(--palette-games-card);
+    font-family: var(--typography-body1-family);
+    font-weight: var(--typography-body1-weight);
+    font-size: var(--typography-body1-size);
+    color: var(--palette-text-secondary);
+    text-shadow: none;
+}
+
+.game__card img {
+    height: 228px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.games__button {
+    padding: 15px;
+    font-family: var(--typography-default-family);
+    font-weight: var(--typography-default-weight);
+    font-size: var(--typography-default-size);
+}
+
+.buffalo-image-wrapper {
+    bottom: 0;
+    right: 0;
+    width: 850px;
+    height: 900px;
+    margin-right: 180px;
+    margin-bottom: 0px;
+}
+
+.buffalo-image {
+    width: 100%;
+    height: 100%;
+    background-image: url('./../images/main/bull.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.circle-wrapper {
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 250px;
+    margin-right: -90px;
+    margin-top: -40px;
+}
+
+.buffalo-back-offer-image-wrapper {
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    margin-right: 0px;
+    margin-top: 0px;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.buffalo-back-1-image {
+    width: 100%;
+    height: 100%;
+    background-image: url('./../images/back_1.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.buffalo-back-1-wrapper {
+    right: 0;
+    top: 0;
+    width: 1355px;
+    height: 1627px;
+    margin-right: -400px;
+    margin-top: -550px;
+}
+
+.buffalo-back-games-image-wrapper {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin-left: 0px;
+    margin-top: 0px;
+    z-index: -5;
+}
+
+.buffalo-back-2-image {
+    width: 100%;
+    height: 100%;
+    background-image: url('./../images/back_2.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.buffalo-back-2-wrapper {
+    left: 0;
+    top: 0;
+    width: 2000px;
+    height: 1800px;
+    margin-left: -800px;
+    margin-top: -1000px;
+}
+
+.buffalo-back-games-3-image-wrapper {
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    margin-right: 0px;
+    margin-top: 0px;
+    z-index: -5;
+    overflow: hidden;
+    overflow-y: clip!important;
+}
+
+.buffalo-back-3-image {
+    width: 100%;
+    height: 100%;
+    background-image: url('./../images/back_3.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.buffalo-back-3-wrapper {
+    right: 0;
+    top: 0;
+    width: 1980px;
+    height: 1860px;
+    margin-right: -600px;
+    margin-top: 550px;
+}
+
+.buffalo-back-4-image {
+    width: 100%;
+    height: 100%;
+    background-image: url('./../images/back_4.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.buffalo-back-4-wrapper {
+    left: 0;
+    top: 0;
+    width: 1980px;
+    height: 1860px;
+    margin-left: -600px;
+    margin-top: 1350px;
+}
+
+/*
+    Media
+*/
+@media (min-width: 1651px) and (max-width: 1850px){
+    .buffalo-image-wrapper {
+        bottom: 0;
+        right: 0;
+        width: 600px;
+        height: 750px;
+        margin-right: 150px;
+        margin-bottom: 0px;
+    }
+}
+@media (min-width: 1436px) and (max-width: 1480px){
+    .main__section {
+        padding-top: 250px;
+    }
+
+    .buffalo-image-wrapper {
+        bottom: 0;
+        right: 0;
+        width: 600px;
+        height: 750px;
+        margin-right: 40px;
+        margin-bottom: 0px;
+    }
+    .circle-wrapper {
+        display: none;
+    }
+
+    .buffalo-back-games-3-image-wrapper,
+    .buffalo-back-offer-image-wrapper,
+    .buffalo-back-games-image-wrapper {
+        display: none;
+    }
+}
+@media (min-width: 1200px) and (max-width: 1435px) {
+    .main__section {
+        padding-top: 250px;
+    }
+
+    .buffalo-image-wrapper {
+        bottom: 0;
+        right: 0;
+        width: 400px;
+        height: 550px;
+        margin-right: 60px;
+        margin-bottom: 0px;
+    }
+
+    .circle-wrapper {
+        display: none;
+    }
+
+    .buffalo-back-games-3-image-wrapper,
+    .buffalo-back-offer-image-wrapper,
+    .buffalo-back-games-image-wrapper {
+        display: none;
+    }
+}
+@media (min-width: 1025px) and (max-width: 1199px){
+
+    /* Fonts */
+
+    body {
+        font-size: calc(var(--typography-default-size) - 2px);
+        line-height: calc(var(--typography-default-lineheight) + 3px);
+    }
+
+    h1 {
+        font-size: calc(var(--typography-h1-size) - 16px);
+        line-height: calc(var(--typography-h1-lineheight) - 16px);
+    }
+
+    h2 {
+        font-size: calc(var(--typography-h2-size) - 12px);
+        line-height: calc(var(--typography-h2-lineheight) - 18px);
+    }
+
+    button {
+        font-size: calc(var(--typography-button-size) - 8px);
+        line-height: calc(var(--typography-button-lineheight) - 10px);
+    }
+
+    .subtitle {
+        font-size: calc(var(--typography-subtitle1-size) - 10px);
+        line-height: calc(var(--typography-subtitle1-lineheight) - 12px);
+    }
+
+    .subtitle-2 {
+        font-size: calc(var(--typography-subtitle2-size) - 20px);
+        line-height: calc(var(--typography-subtitle2-lineheight) - 30px);
+    }
+
+    .game__card {
+        font-size: calc(var(--typography-body1-size) - 8px);
+    }
+
+    .game__card__title {
+        font-size: 32px;
+    }
+
+    .games__button {
+        font-size: calc(var(--typography-default-size) - 2px);
+    }
+
+    /* Images */
+    .header__logo img {
+        width: 145px;
+    }
+
+    .offer__wrapper img {
+        width: 350px;
+    }
+
+    .game__card img {
+        min-height: 215px;
+        max-height: 215px;
+        width: 290px;
+    }
+
+    /* Games */
+    .game__card {
+        height: 400px;
+    }
+
+    /* Paddings */
+    .custom__container {
+        padding: 0 80px;
+    }
+
+    button {
+        padding: 40px 20px;
+    }
+
+    .games__button {
+        padding: 12px 10px;
+    }
+
+    .buffalo-image-wrapper {
+        display: none;
+    }
+
+    .buffalo-back-games-3-image-wrapper,
+    .buffalo-back-offer-image-wrapper,
+    .buffalo-back-games-image-wrapper {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+
+    /* Fonts */
+
+    body {
+        font-size: calc(var(--typography-default-size) - 4px);
+        line-height: calc(var(--typography-default-lineheight) + 6px);
+    }
+
+    h1 {
+        font-size: calc(var(--typography-h1-size) - 32px);
+        line-height: calc(var(--typography-h1-lineheight) - 32px);
+    }
+
+    h2 {
+        font-size: calc(var(--typography-h2-size) - 28px);
+        line-height: calc(var(--typography-h2-lineheight) - 42px);
+    }
+
+    button {
+        font-size: calc(var(--typography-button-size) - 16px);
+        line-height: calc(var(--typography-button-lineheight) - 29px);
+    }
+
+    .subtitle {
+        font-size: calc(var(--typography-subtitle1-size) - 16px);
+        line-height: calc(var(--typography-subtitle1-lineheight) - 18px);
+    }
+
+    .subtitle-2 {
+        font-size: calc(var(--typography-subtitle2-size) - 48px);
+        line-height: calc(var(--typography-subtitle2-lineheight) - 72px);
+    }
+
+    .game__card {
+        font-size: calc(var(--typography-body1-size) - 16px);
+    }
+
+    .games__button {
+        font-size: calc(var(--typography-default-size) - 4px);
+    }
+
+    /* Images */
+    .header__logo img {
+        width: 68px;
+    }
+
+    .offer__wrapper img {
+        width: 254px;
+    }
+
+    .game__card img {
+        min-height: 200px;
+        width: 100%;
+    }
+
+    /* Games */
+    .game__card {
+        width: 30%;
+        height: 392px;
+    }
+
+    /* Paddings */
+    .custom__container {
+        padding: 0 30px;
+    }
+
+    button {
+        padding: 25px 10px;
+    }
+
+    .games__button {
+        padding: 10px 6px;
+    }
+
+    .main__content__wrapper {
+        width: 415px;
+    }
+
+    .buffalo-image-wrapper {
+        display: none;
+    }
+
+    .buffalo-back-games-3-image-wrapper,
+    .buffalo-back-offer-image-wrapper,
+    .buffalo-back-games-image-wrapper {
+        display: none;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 767px){
+
+    /* Fonts */
+
+    body {
+        font-size: calc(var(--typography-default-size) - 5px);
+        line-height: calc(var(--typography-default-lineheight) + 2px);
+    }
+
+    h1 {
+        font-size: calc(var(--typography-h1-size) - 48px);
+        line-height: calc(var(--typography-h1-lineheight) - 44px);
+    }
+
+    h2 {
+        font-size: calc(var(--typography-h2-size) - 36px);
+        line-height: calc(var(--typography-h2-lineheight) - 54px);
+    }
+
+    button {
+        font-size: calc(var(--typography-button-size) - 24px);
+        line-height: calc(var(--typography-button-lineheight) - 41px);
+    }
+
+    .subtitle {
+        font-size: calc(var(--typography-subtitle1-size) - 30px);
+        line-height: calc(var(--typography-subtitle1-lineheight) - 35px);
+    }
+
+    .subtitle-2 {
+        font-size: calc(var(--typography-subtitle2-size) - 54px);
+        line-height: calc(var(--typography-subtitle2-lineheight) - 81px);
+    }
+
+    .game__card {
+        font-size: calc(var(--typography-body1-size) - 20px);
+    }
+
+    .games__button {
+        font-size: calc(var(--typography-default-size) - 5px);
+    }
+
+    /* Images */
+    .header__logo img {
+        width: 55px;
+    }
+
+    .offer__wrapper img {
+        width: 250px;
+    }
+
+    .game__card img {
+        min-height: 165px;
+        width: 100%;
+    }
+
+    /* Games */
+    .game__card {
+        height: 275px;
+        width: 30%;
+    }
+
+    /* Paddings */
+    .custom__container {
+        padding: 0 20px;
+    }
+
+    button {
+        padding: 20px 8px;
+    }
+
+    .games__button {
+        padding: 10px 6px;
+    }
+
+    .main__content__wrapper {
+        width: 305px;
+    }
+
+    .buffalo-image-wrapper {
+        display: none;
+    }
+
+    .buffalo-back-games-3-image-wrapper,
+    .buffalo-back-offer-image-wrapper,
+    .buffalo-back-games-image-wrapper {
+        display: none;
+    }
+}
+
+@media (min-width: 280px) and (max-width: 576px){
+
+    /* Fonts */
+
+    body {
+        font-size: calc(var(--typography-default-size) - 6px);
+        line-height: calc(var(--typography-default-lineheight) - 3px);
+    }
+
+    h1 {
+        font-size: calc(var(--typography-h1-size) - 64px);
+        line-height: calc(var(--typography-h1-lineheight) - 57px);
+    }
+
+    h2 {
+        font-size: calc(var(--typography-h2-size) - 44px);
+        line-height: calc(var(--typography-h2-lineheight) - 66px);
+    }
+
+    button {
+        font-size: calc(var(--typography-button-size) - 32px);
+        line-height: calc(var(--typography-button-lineheight) - 53px);
+    }
+
+    .subtitle {
+        font-size: calc(var(--typography-subtitle1-size) - 44px);
+        line-height: calc(var(--typography-subtitle1-lineheight) - 52px);
+    }
+
+    .subtitle-2 {
+        font-size: calc(var(--typography-subtitle2-size) - 60px);
+        line-height: calc(var(--typography-subtitle2-lineheight) - 90px);
+    }
+
+    .game__card {
+        font-size: calc(var(--typography-body1-size) - 24px);
+    }
+
+    .games__button {
+        font-size: calc(var(--typography-default-size) - 6px);
+    }
+
+    /* Images */
+    .header__logo img {
+        width: 45px;
+    }
+
+    .offer__wrapper img {
+        width: 250px;
+    }
+
+    .game__card img {
+        height: 131px;
+        width: 149px;
+    }
+
+    /* Games */
+    .game__card {
+        width: 280px;
+        height: 131px;
+    }
+
+    /* Paddings */
+    .custom__container {
+        padding: 0 15px;
+    }
+
+    button {
+        padding: 10px 5px;
+    }
+
+    .games__button {
+        padding: 10px 6px;
+    }
+
+    .main__content__wrapper {
+        width: 205px;
+    }
+
+    .buffalo-image-wrapper {
+        display: none;
+    }
+
+    .buffalo-back-games-3-image-wrapper,
+    .buffalo-back-offer-image-wrapper,
+    .buffalo-back-games-image-wrapper {
+        display: none;
+    }
+}
