@@ -1,7 +1,7 @@
 <?php
 
 // Head
-$PAGE_TITLE = "Buffalo";
+$PAGE_TITLE = "BetBlaze";
 $PAGE_DESCRIPTION = "Page 404";
 
 // Content below

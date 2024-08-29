@@ -1,6 +1,6 @@
 <?php
 
-$PAGE_TITLE = 'Buffalo';
+$PAGE_TITLE = 'BetBlaze';
 $PAGE_DESCRIPTION = 'Играй в лучшие игры и получай невероятные бонусы прямо сейчас!';
 
 ?>

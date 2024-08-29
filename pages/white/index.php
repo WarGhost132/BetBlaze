@@ -1,6 +1,6 @@
 <?php
 
-$PAGE_TITLE = 'Buffalo';
+$PAGE_TITLE = 'BetBlaze';
 $PAGE_DESCRIPTION = 'Description';
 
 ?>
